@@ -744,3 +744,45 @@
     background-color: green;
     text-align: center;
 }
+
+.z-stack-0 {
+    position: relative;
+    width: 500px;
+    height: 350px;
+    margin: 50px auto;
+}
+
+.z-stack-0 > div {
+    left: 50%;
+    top: 50%;
+    color: green;
+}
+
+.z-stack-0 > div:nth-child(1) {
+    transform: translate(-50%, -50%);
+}
+
+.z-stack-0 > div:nth-child(2) {
+    transform: translate(calc(-50% + 30px), calc(-50% + 30px));
+}
+
+.z-stack-0 > div:nth-child(3) {
+    transform: translate(calc(-50% + 60px), calc(-50% + 60px));
+}
+
+.z-stack-0 > div:nth-child(4) {
+    transform: translate(calc(-50% + 90px), calc(-50% + 90px));
+}
+
+.z-stack-0 > div:nth-child(5) {
+    transform: translate(calc(-50% + 120px), calc(-50% + 120px));
+}
+
+.div-2j {
+    background-color: gray;
+    text-align: center;
+}
+
+.span-0m {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
