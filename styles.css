@@ -790,3 +790,35 @@
 .strong-0m {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.div-2k {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    color: white;
+    background-color: green;
+}
+
+.callout {
+    text-align: center;
+}
+
+.callout-info {
+    text-align: center;
+}
+
+.callout-warning {
+    text-align: center;
+}
+
+.callout-danger {
+    text-align: center;
+}
+
+.div-2l {
+    color: gray;
+    background-color: green;
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+}
