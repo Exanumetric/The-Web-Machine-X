@@ -1,42 +1,39 @@
-[org 0x7c00]            ; BIOS loads the bootloader at this memory address
+[org 0x7c00]            
 
-    mov cx, 24          ; Set our loop counter to 24 lines
+    mov cx, 24          
 
 print_loop_24:
-    push cx             ; Save the current counter (BIOS interrupts might change CX)
+    push cx             
     
-    mov si, msg         ; Point to our "Welcome" string
-    call print_string   ; Print the string
-    call print_newline  ; Move the cursor to the next line
+    mov si, msg         
+    call print_string   
+    call print_newline  
     
-    pop cx              ; Restore our loop counter
-    dec cx              ; Subtract 1 from the counter
-    jnz print_loop_24   ; If counter is not zero, repeat the loop
+    pop cx              
+    dec cx              
+    jnz print_loop_24   
 
 halt:
-    jmp $               ; Infinite loop to safely halt execution once finished
-
-; --- Functions ---
+    jmp $               
 
 print_string:
-    mov ah, 0x0e        ; BIOS teletype function
+    mov ah, 0x0e        
 .next_char:
-    lodsb               ; Load byte from SI into AL, increment SI
-    cmp al, 0           ; Check for null terminator
-    je .done            ; If 0, string is finished
-    int 0x10            ; Call BIOS video interrupt to print character
+    lodsb               
+    cmp al, 0           
+    je .done            
+    int 0x10            
     jmp .next_char
 .done:
     ret
 
 print_newline:
-    mov ah, 0x0e        ; BIOS teletype function
-    mov al, 0x0d        ; Carriage Return (\r) - moves cursor to start of line
+    mov ah, 0x0e        
+    mov al, 0x0d        
     int 0x10
-    mov al, 0x0a        ; Line Feed (\n) - moves cursor down one line
+    mov al, 0x0a        
     int 0x10
     ret
-
 
 msg: db 'Welcome', 0
 
