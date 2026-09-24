@@ -37,5 +37,5 @@ print_newline:
 
 msg: db 'Welcome', 0
 
-times 510-($-$$) db 0   ; Pad remaining bytes with zeroes up to byte 510
-dw 0xaa55               ; Standard MBR boot signature
+times 510-($-$$) db 0   
+dw 0xaa55               
