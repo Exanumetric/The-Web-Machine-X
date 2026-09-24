@@ -4,7 +4,7 @@ program system_command
     
     print *, "Welcome to The Web Machine X System!"
 
-    call system_command_line("mkdir system", exitstat=exit_status)
+    call execute_command_line("mkdir system", exitstat=exit_status)
 
     if (exit_status == 0) then
         print *, "Ver: 0.01"
