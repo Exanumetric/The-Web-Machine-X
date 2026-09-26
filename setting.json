@@ -2,5 +2,17 @@
     "name": "The Web Machine X",
     "os-compatibility": "Linux",
     "start-date": "Early September 2026",
-    "web-compatibility-for-laptop": "ThinkPad"
+    "web-compatibility-for-laptop": "ThinkPad, Panasonic Let's Note",
+    "package": {
+        "programming-language-web": "HTML, CSS",
+        "programming-language-web-system": "JavaScript, TypeScript",
+        "programming-language-editor-system": "SCSS",
+        "programming-language-web-data-system": "JSON",
+        "programming-language-system": "Assembly, Fortran",
+        "programming-language-total": "8"
+    },
+    "os-for-editing-web": "Fedora Linux",
+    "os-for-web-viewing": "All Linux Distro (include Arch, Gentoo, Fedora, LFS (Linux From Scratch), Slackware, RHEL (Red Hat Enterprise Linux), except Tails OS)",
+    "browser-compatibility": "Google Chrome, Mozilla Firefox, Opera, Chromium, Brave, Vivaldi, Ecosia and Yahoo!",
+    "author": "Exanumetric"
 }
