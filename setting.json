@@ -9,7 +9,7 @@
         "programming-language-editor-system": "SCSS",
         "programming-language-web-data-system": "JSON",
         "programming-language-system": "Assembly, Fortran",
-        "programming-language-total": "8"
+        "programming-language-total": 8
     },
     "os-for-editing-web": "Fedora Linux",
     "os-for-web-viewing": "All Linux Distro (include Arch, Gentoo, Fedora, LFS (Linux From Scratch), Slackware, RHEL (Red Hat Enterprise Linux), except Tails OS)",
