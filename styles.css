@@ -832,3 +832,43 @@
     background-color: green;
     text-align: center;
 }
+
+.div-2n {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
+
+.span-0n {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+}
+
+.strong-0n {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+}
+
+.div-2o {
+    background-color: gray;
+}
+
+.div-2p {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
+
+.span-0o {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 60px;
+}
+
+.span-0p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+}
