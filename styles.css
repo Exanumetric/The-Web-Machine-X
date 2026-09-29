@@ -872,3 +872,13 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 60px;
 }
+
+.div-2q {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+    font-family: cursive;
+    font-size: 60px;
+    color: white;
+    background-color: green;
+}
