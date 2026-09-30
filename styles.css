@@ -89,6 +89,7 @@
     border: 2px solid #222;
     border-radius: 12px;
 }
+
 .div-0g {
      width: 2px;
     height: 140px;
@@ -903,4 +904,17 @@
 
 .div-2t {
     background-color: green;
+}
+
+.div-2u {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
+
+.span-0r {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
 }
