@@ -13,6 +13,16 @@
     },
     "os-for-editing-web": "Fedora Linux",
     "os-for-web-viewing": "All Linux Distro (include Arch, Gentoo, Fedora, LFS (Linux From Scratch), Slackware, RHEL (Red Hat Enterprise Linux), except Tails OS)",
-    "browser-compatibility": "Google Chrome, Mozilla Firefox, Opera, Chromium, Brave, Vivaldi, Ecosia and Yahoo!",
+    "browser-compatibility": "Google Chrome, Mozilla Firefox, Opera, Chromium, Brave, Vivaldi, Ecosia, Supermium, GNU IceCat and Yahoo!",
+    "mobile-compatibility": "Android (Android phone and Android tablet)",
+    "requirement": {
+        "Processor": "optional (except Apple Silicon)",
+        "RAM": "optional",
+        "Network-Internet-Ethernet": "optional",
+        "CPU-GPU": "optional",
+        "SSD-HDD": "optional",
+        "TPM": "optional",
+        "Electricity": "optional"
+    },
     "author": "Exanumetric"
 }
