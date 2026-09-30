@@ -2,7 +2,7 @@
     "name": "The Web Machine X",
     "os-compatibility": "Linux",
     "start-date": "Early September 2026",
-    "web-compatibility-for-laptop": "ThinkPad, Panasonic Let's Note",
+    "web-compatibility-for-laptop": "ThinkPad, Panasonic Let's Note, Framework laptop, Chromebooks (but it might be laggy)",
     "package": {
         "programming-language-web": "HTML, CSS",
         "programming-language-web-system": "JavaScript, TypeScript",
