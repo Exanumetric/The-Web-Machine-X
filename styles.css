@@ -1080,3 +1080,17 @@
     color: white;
     background-color: darkgreen;
 }
+
+.div-3p {
+    background-color: gray;
+}
+
+.div-3q {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
