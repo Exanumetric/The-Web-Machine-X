@@ -1102,3 +1102,103 @@
 .div-3s {
     background-color: green;
 }
+
+.div-3t {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: fantasy;
+    font-size: 60px;
+    color: white;
+    background-color: green;
+    text-align: center;
+}
+
+.div-3u {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: lightgreen;
+}
+
+.strong-0p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.div-3v {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
+
+.div-3w {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
+
+.div-3x {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
+
+.div-3y {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
+
+.div-3z {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 60px;
+    color: white;
+    background-color: green;
+    text-align: center;
+}
+
+.div-4 {
+    background-color: green;
+}
+
+.div-4a {
+    background-color: green;
+}
+
+.div-4b {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: green;
+}
+
+.span-0u {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.strong-0q {
+    font-family: cursive;
+}
