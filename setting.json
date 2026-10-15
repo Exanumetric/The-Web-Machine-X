@@ -24,5 +24,11 @@
         "TPM": "optional",
         "Electricity": "optional"
     },
+    "binary": {
+        "system-binary": "yes",
+        "web-binary": "yes",
+        "code-binary": "yes",
+        "memory-binary": "yes"
+    },
     "author": "Exanumetric"
 }
