@@ -1280,3 +1280,43 @@
 .strong-0t {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.div-4g {
+    background-color: green;
+}
+
+.div-4h {
+    background-color: darkgreen;
+}
+
+.div-4i {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: green;
+    border-radius: 40px;
+    border-style: groove;
+    border-color: lightgreen;
+    border-spacing: 20px;
+}
+
+.span-1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 80px;
+    border-style: dotted;
+    border-color: darkgreen;
+    border-spacing: 20px;
+}
+
+.span-1a {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 80px;
+    border-style: dashed;
+    border-color: darkgreen;
+    border-spacing: 20px;
+}
