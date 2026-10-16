@@ -30,5 +30,23 @@
         "code-binary": "yes",
         "memory-binary": "yes"
     },
+    "xml": "yes",
+    "info": "yes",
+    "$schema": "https://swc.rs/schema.json",
+    "module": {
+        "type": "es6",
+        "strict": false,
+        "lazy": false,
+        "number-module": 600,
+        "memory-module": "yes",
+        "web-module": "yes",
+        "open-system-module": "yes"
+    },
+    "open-source": "yes",
+    "bloatware": "no",
+    "exclude-os": "Windows, macOS",
+    "exclude-laptop": "Windows laptop, MacBooks",
+    "exclude-mobile": "iPhone, iPad",
+    "exclude-browser": "Tor browser, Safari",
     "author": "Exanumetric"
 }
