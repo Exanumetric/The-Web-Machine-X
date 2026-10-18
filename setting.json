@@ -48,5 +48,13 @@
     "exclude-laptop": "Windows laptop, MacBooks",
     "exclude-mobile": "iPhone, iPad",
     "exclude-browser": "Tor browser, Safari",
+    "virtual-machine-compatibiity": "no",
+    "convert-to-zip/pdf-file": "yes (but only work on Linux)",
+    "libreoffice-compatibility": "yes",
+    "folder": {
+        "root": "yes",
+        "tree": "yes",
+        "system": "yes"
+    },
     "author": "Exanumetric"
 }
