@@ -10,6 +10,5 @@ This was about The Web Machine X
 
 
 As you can coding that website like them as well. If you want to follow for more, make sure you have to contact me on GitHub
-(Disclaimer: Do not edit the file from The Web Machine X unless you got that permission from Exanumetric and only Exanumetric can edit that)
 
 "Exanumetric"
