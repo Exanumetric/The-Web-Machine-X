@@ -1416,3 +1416,29 @@
 .div-4p {
     background-color: lightgreen;
 }
+
+.div-4q {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-display: inherit;
+    font-variant: unset;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    background-color: green;
+    border: 80px 80px 80px 80px;
+    border-spacing: 20px;
+    border-radius: 80px;
+    border-style: dotted;
+}
+
+.span-1b {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.div-4q a {
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+}
