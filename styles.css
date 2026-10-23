@@ -1442,3 +1442,47 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 40px;
 }
+
+.div-4r {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 60px;
+    font-weight: bold;
+    font-display: inherit;
+    font-variant: initial;
+    text-align: center;
+    color: white;
+    background-color: green;
+    border: 100px 100px 100px 100px;
+    border-spacing: 20px;
+    border-color: lightgreen;
+    border-style: dotted;
+    border-radius: 20px;
+}
+
+.div-4s {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 60px;
+    font-weight: bold;
+    font-display: inherit;
+    font-variant: initial;
+    text-align: center;
+    color: white;
+    background-color: green;
+    border: 100px 100px 100px 100px;
+    border-spacing: 20px;
+    border-color: lightgreen;
+    border-style: dotted;
+    border-radius: 20px;
+}
+
+.span-1c {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.span-1d {
+    font-family: fantasy;
+}
