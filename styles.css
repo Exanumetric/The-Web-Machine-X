@@ -2520,3 +2520,31 @@
     border-color: lightgreen;
     display: block;
 }
+
+.div-7b {
+    padding: 200px 200px 200px 200px;
+    margin: 20px 20px 20px 20px;
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    background-color: green;
+    font-weight: bold;
+    font-variant: unset;
+    font-display: inherit;
+    font-style: oblique;
+    border: 100px 100px 100px 100px;
+    border-style: dotted;
+    border-spacing: 20px;
+    border-radius: 20px;
+    border-color: lightgreen;
+    display: block;
+}
+
+.span-1s {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.span-1t {
+    font-family: 'Courier New', Courier, monospace;
+}
