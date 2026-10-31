@@ -40,3 +40,9 @@ if (accordion && toggleBtn) {
     toggleBtn.textContent = expand ? 'Collapse all' : 'Expand all'
   })
 }
+
+const dialog = new bootstrap.Dialog('#myDialog', { modal: false })
+dialog.show()
+
+const collapseElementList = document.querySelectorAll('.collapse')
+const collapseList = [...collapseElementList].map(collapseEl => new bootstrap.Collapse(collapseEl))
