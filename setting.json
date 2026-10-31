@@ -2,7 +2,7 @@
     "name": "The Web Machine X",
     "os-compatibility": "Linux",
     "start-date": "Early September 2026",
-    "web-compatibility-for-laptop": "ThinkPad, Panasonic Let's Note, Framework laptop, Chromebooks (but it might be laggy)",
+    "web-compatibility-for-laptop": "ThinkPad, Panasonic Let's Note, Framework laptop, Chromebooks (but it might be laggy into 15 fps), Toughbook and Toughpad",
     "package": {
         "programming-language-web": "HTML, CSS",
         "programming-language-web-system": "JavaScript, TypeScript",
@@ -56,5 +56,11 @@
         "tree": "yes",
         "system": "yes"
     },
+    "closed-source/proprietary": "no",
+    "gaming-laptop-compatibility": "no",
+    "archive to xz/gz": "yes",
+    "exe-compatibility": "no",
+    "elf-compatibility": "yes",
+    "filename": "The-Web-Machine-X",
     "author": "Exanumetric"
 }
