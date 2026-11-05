@@ -61,6 +61,8 @@
     "archive to xz/gz": "yes",
     "exe-compatibility": "no",
     "elf-compatibility": "yes",
+    "BSD-compatibility": "yes",
+    "adware": "no",
     "filename": "The-Web-Machine-X",
     "author": "Exanumetric"
 }
