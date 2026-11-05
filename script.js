@@ -46,3 +46,9 @@ dialog.show()
 
 const collapseElementList = document.querySelectorAll('.collapse')
 const collapseList = [...collapseElementList].map(collapseEl => new bootstrap.Collapse(collapseEl))
+
+const popover = new bootstrap.Popover('.example-popover', {
+  container: 'body'
+})
+
+console.log("It's me Exanumetric!")
