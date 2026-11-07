@@ -52,3 +52,51 @@ const popover = new bootstrap.Popover('.example-popover', {
 })
 
 console.log("It's me Exanumetric!")
+
+const triggerEl = document.querySelector('#myTab button[data-bs-target="#profile"]')
+bootstrap.Tab.getInstance(triggerEl).show()
+
+const triggerFirstTabEl = document.querySelector('#myTab li:first-child button')
+bootstrap.Tab.getInstance(triggerFirstTabEl).show()
+
+const menuElementList = document.querySelectorAll('[data-bs-toggle="menu"]')
+const menuList = [...menuElementList].map(menuToggleEl => new bootstrap.Menu(menuToggleEl))
+
+const menuToggleEl = document.querySelector('#myMenuToggle')
+const menu = bootstrap.Menu.getOrCreateInstance(menuToggleEl)
+
+menu.show()
+menu.hide()
+menu.toggle()
+
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert theme-${type}" role="alert">`,
+    `   <p>${message}</p>`,
+    '   <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
+}
+
+const alertTrigger = document.getElementById('liveAlertBtn')
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', () => {
+    appendAlert('Hi! You got that alert right?', 'For yourself')
+  })
+}
+
+const element = document.querySelector('.form-range')
+const range = new bootstrap.Range(element, {
+  bubble: true,
+  formatter: value => `${value}%`
+})
+
+const input = document.querySelector('.form-range-input')
+
+input.addEventListener('changed.bs.range', event => {
+  console.log('Value:', event.value)
+})
