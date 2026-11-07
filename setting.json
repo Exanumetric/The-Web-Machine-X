@@ -63,6 +63,42 @@
     "elf-compatibility": "yes",
     "BSD-compatibility": "yes",
     "adware": "no",
+    "websystem-computer": {
+        "web-firmware": "yes",
+        "mount-websystem" : "yes",
+        "mount-webpackage": {
+            "mount": "yes",
+            "alt": "yes",
+            "0 and 1": "yes",
+            "compile-to-linux": "yes"
+        }
+    },
+    "file": {
+        "folder": {
+            "system": {
+                "mount": {
+                    "config": {
+                        "root": {
+                            "form": {
+                                "tools": {
+                                    "webconfig": "yes",
+                                    "polyweb": "yes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "machine": "Lenovo ThinkPad X13 Gen 1 Intel",
+    "DE-compatibility": "All (GNOME, KDE Plasma, XFCE,...)",
+    "filefalls": {
+        "webfalls": {
+            "polyfall": "yes",
+            "syscall": "yes"
+        }
+    },
     "filename": "The-Web-Machine-X",
     "author": "Exanumetric"
 }
