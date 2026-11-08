@@ -99,6 +99,14 @@
             "syscall": "yes"
         }
     },
+    "extract-app-compatibility": {
+        "7-zip": "yes",
+        "WinRAR": "no",
+        "RARLAB": "yes",
+        "xz": "yes",
+        "gz": "yes",
+        "bz2/tar": "yes"
+    },
     "filename": "The-Web-Machine-X",
     "author": "Exanumetric"
 }
