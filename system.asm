@@ -3,7 +3,7 @@ sys_exit equ 60
 stdout equ 1
 
 section .data
-   msg db "Welcome...", 10, "The Web Machine X", 10, "v0.0.1", 10
+   msg db "Welcome...", 10, "The Web Machine X", 10, "v0.0.2", 10
    len equ $ - msg
 section .text
    global _start
