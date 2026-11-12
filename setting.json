@@ -107,6 +107,34 @@
         "gz": "yes",
         "bz2/tar": "yes"
     },
+    "configFile": "yes",
+    "minify": true,
+    "plugin": {
+        "version": "0.0.2"
+    },
+    "inlineSourcesContent": true,
+    "online/offline": "yes",
+    "sysver": "0.0.2",
+    "div": "yes",
+    "package-info": {
+        "package": {
+            "HTML": "yes",
+            "CSS": "yes",
+            "JavaScript": "yes",
+            "JSON": "yes",
+            "SCSS": "yes",
+            "Fortran": "yes",
+            "Assembly": "yes",
+            "TypeScript": "yes"
+        }
+    },
+    "Figma/Notion-compatibility": "no",
+    "Presetation-compatibility": "yes",
+    "envName": "The-Web-Machine-X v0.0.2",
+    "isModule": true,
+    "outputPath": "The Web Machine X",
+    "sourceMaps": true,
+    "sourceRoot": "The-Web-Machine-X-root.txt",
     "filename": "The-Web-Machine-X",
     "author": "Exanumetric"
 }
