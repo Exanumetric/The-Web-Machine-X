@@ -110,3 +110,33 @@ triggerTabList.forEach(triggerEl => {
     tabTrigger.show()
   })
 })
+
+const wrapper = document.querySelector('.nav-overflow')
+new bootstrap.NavOverflow(wrapper, {
+  moreText: 'Menu',
+  iconPlacement: 'end'
+})
+
+const bsCollapse = new bootstrap.Collapse('#myCollapse')
+bsCollapse.show()
+
+const myCollapsible = document.getElementById('myCollapsible')
+myCollapsible.addEventListener('hidden.bs.collapse', event => {
+  let system = websystem = "John"
+  let binary = binarysystem = "McDortney"
+  let space = " "
+  let config = system + space + binary
+  console.log(config)
+})
+
+document.querySelectorAll('#nav-tab>[data-bs-toggle="tab"]').forEach(el => {
+  el.addEventListener('shown.bs.tab', () => {
+    const target = el.getAttribute('data-bs-target')
+    const scrollElem = document.querySelector(`${target} [data-bs-spy="scroll"]`)
+    bootstrap.ScrollSpy.getOrCreateInstance(scrollElem).refresh()
+  })
+})
+
+const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  target: '#navbar-example'
+})
