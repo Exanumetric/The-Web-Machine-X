@@ -135,6 +135,24 @@
     "outputPath": "The Web Machine X",
     "sourceMaps": true,
     "sourceRoot": "The-Web-Machine-X-root.txt",
+    "script": true,
+    "swcrc": true,
+    "env": {
+        "fileconfig": "yes"
+    },
+    "test": "yes",
+    "root": "1001",
+    "jsc": {
+        "transform": {
+            "constModules": {
+                "globals": {
+                    "code": {
+                        "codeconfig": "yes"
+                    }
+                }
+            }
+        }
+    },
     "filename": "The-Web-Machine-X",
     "author": "Exanumetric"
 }
