@@ -1,278 +1,486 @@
-global _start
+BITS 64
+DEFAULT REL
 
-%macro PRINT 1
-    lea rsi, [rel %1]
-    call print_line
-%endmacro
-
-%macro MATCH 2
-    lea rdi, [rel command]
-    lea rsi, [rel %1]
-    call compare_strings
-    test eax, eax
-    jz %2
-%endmacro
+%define SYS_write 1
+%define SYS_exit 60
+%define STDOUT 1
+%define ARRAY_COUNT 8
+%define BUFFER_SIZE 256
 
 section .data
-	prompt db 'WMX> '
-	welcome db 'The Web Machine X v0.0.2',0
-	help_text db 'HELP       Show commands',10,'STATUS     Show system state',10,'MEMORY     Show simulated memory',10,'PROCESS    Show simulated processes',10,'START      Start simulator',10,'STOP       Stop simulator',10,'CPU        Show simulated CPU',10,'DISK       Show simulated disk',10,'CHECK      Run system check',10,'ABOUT      About this simulator',10,'VERSION    Show version',10,'RESET      Reset simulator',10,'CLEAR      Clear terminal',10,'SHUTDOWN   Exit simulator',0
-	status_title db 'SYSTEM STATUS',0
-	status_running db 'State: RUNNING',0
-	status_stopped db 'State: STOPPED',0
-	memory_text db 'MEMORY STATUS',10,'Total: 16 GB (simulated)',10,'Used: 5 GB (simulated)',10,'Free: 11 GB (simulated)',0
-	process_text db 'PROCESS TABLE',10,'PID 001  WMX-KERNEL  RUNNING',10,'PID 002  WMX-SHELL   RUNNING',10,'PID 003  WMX-MONITOR IDLE',0
-	cpu_text db 'CPU STATUS',10,'Processor: Generic x86-64 (simulated)',10,'Load: 12 percent (simulated)',10,'Logical cores: 8 (simulated)',0
-	disk_text db 'DISK STATUS',10,'Device: WMX-VIRTUAL-DISK',10,'Capacity: 256 GB (simulated)',10,'Available: 180 GB (simulated)',0
-	check_text db 'SYSTEM CHECK',10,'[OK] Command interface',10,'[OK] Simulator state',10,'[OK] Virtual memory model',10,'[OK] Virtual disk model',10,'No simulated faults found.',0
-	about_text db 'Web Machine X is a user-space system simulator.',10,'Hardware values are illustrative, not live telemetry.',0
-	version_text db 'Web Machine X System Simulator version 0.0.2',0
-	started_text db 'System started.',0
-	stopped_text db 'System stopped.',0
-	reset_text db 'Simulator state reset.',0
-	shutdown_text db 'Shutting down Web Machine X simulator.',0
-	unknown_text db 'Unknown command. Type HELP.',0
-	input_error db 'Input ended. Exiting simulator.',0
-	clear_code db 27,'[2J',27,'[H',0
-	newline db 10
+    title db 10, "The Web Machine X v0.0.2", 10, 0
+    start_msg db "[WMX] Running tests...", 10, 0
+    g1 db 10, "[1] Arithmetic", 10, 0
+    g2 db 10, "[2] DIV and IDIV", 10, 0
+    g3 db 10, "[3] Logic and bit operations", 10, 0
+    g4 db 10, "[4] Control flow", 10, 0
+    g5 db 10, "[5] Stack and procedures", 10, 0
+    g6 db 10, "[6] Memory and arrays", 10, 0
+    g7 db 10, "[7] String instructions", 10, 0
+    pass_msg db "PASS", 10, 0
+    fail_msg db "FAIL", 10, 0
+    done_msg db 10, "[WMX] Test groups complete.", 10, 0
+    div_msg db "100 / 9 = ", 0
+    rem_msg db " remainder ", 0
+    idiv_msg db "-100 / 9 = ", 0
+    sum_msg db "Array sum = ", 0
+    newline db 10, 0
+    minus db "-", 0
+
+    array dq 3, 6, 9, 12, 15, 18, 21, 24
+    source db "Web Machine X", 0
+    source_len equ $ - source - 1
 
 section .bss
-	command resb 32
-	input_char resb 1
-	system_running resd 1
-
-section .rodata
-	cmd_help db 'HELP',0
-	cmd_status db 'STATUS',0
-	cmd_memory db 'MEMORY',0
-	cmd_process db 'PROCESS',0
-	cmd_start db 'START',0
-	cmd_stop db 'STOP',0
-	cmd_cpu db 'CPU',0
-	cmd_disk db 'DISK',0
-	cmd_check db 'CHECK',0
-	cmd_about db 'ABOUT',0
-	cmd_version db 'VERSION',0
-	cmd_reset db 'RESET',0
-	cmd_clear db 'CLEAR',0
-	cmd_shutdown db 'SHUTDOWN',0
+    copy_buffer resb BUFFER_SIZE
+    number_buffer resb 32
+    failures resq 1
+    sum_value resq 1
+    last_q resq 1
+    last_r resq 1
 
 section .text
+global _start
+
 _start:
-    ; Avoid blocking forever when the sandbox provides no stdin data.
-    mov eax, 72                     ; fcntl
-    xor edi, edi                    ; stdin
-    mov esi, 4                      ; F_SETFL
-    mov edx, 0x800                  ; O_NONBLOCK
-    syscall
+    lea rsi, [rel title]
+    call print_string
+    lea rsi, [rel start_msg]
+    call print_string
+    mov qword [rel failures], 0
 
-    mov dword [rel system_running], 1
-    PRINT welcome
+    call test_arithmetic
+    call test_division
+    call test_logic
+    call test_control
+    call test_stack
+    call test_memory
+    call test_strings
 
-main_loop:
-    mov eax, 1
+    lea rsi, [rel done_msg]
+    call print_string
+
+    cmp qword [rel failures], 0
+    jne .bad
+    mov edi, 0
+    jmp exit_process
+.bad:
     mov edi, 1
-    lea rsi, [rel prompt]
-    mov edx, 5
-    syscall
+    jmp exit_process
 
-    xor r12d, r12d                 ; command length
-    xor r13d, r13d                 ; set after the first word
-.read_input:
-    xor eax, eax
-    xor edi, edi
-    lea rsi, [rel input_char]
-    mov edx, 1
-    syscall
+; ----------------------------------------------------------------------
+; 1. Arithmetic: ADD, SUB, MUL, IMUL, INC, DEC, NEG, CMP, TEST
+; ----------------------------------------------------------------------
+test_arithmetic:
+    lea rsi, [rel g1]
+    call print_string
+
+    mov rax, 84
+    add rax, 7
+    cmp rax, 91
+    jne .fail
+
+    sub rax, 14
+    cmp rax, 77
+    jne .fail
+
+    mov rax, 7
+    mul qword [rel divisor7]
+    cmp rax, 49
+    jne .fail
+    test rdx, rdx
+    jne .fail
+
+    mov rax, -12
+    imul rax, 5
+    cmp rax, -60
+    jne .fail
+
+    mov rax, 9
+    inc rax
+    dec rax
+    cmp rax, 9
+    jne .fail
+
+    neg rax
+    cmp rax, -9
+    jne .fail
+
+    mov rax, 0b1010
+    test rax, 0b0010
+    jz .fail
+
+    call report_pass
+    ret
+.fail:
+    call report_fail
+    ret
+
+; ----------------------------------------------------------------------
+; 2. Unsigned DIV and signed IDIV
+; DIV uses RDX:RAX as dividend. Clear RDX for a simple 64-bit dividend.
+; IDIV uses a signed RDX:RAX dividend. CQO sign-extends RAX into RDX:RAX.
+; ----------------------------------------------------------------------
+test_division:
+    lea rsi, [rel g2]
+    call print_string
+
+    mov rax, 100
+    xor edx, edx
+    mov rcx, 9
+    div rcx
+    mov [rel last_q], rax
+    mov [rel last_r], rdx
+    cmp rax, 11
+    jne .fail
+    cmp rdx, 1
+    jne .fail
+
+    lea rsi, [rel div_msg]
+    call print_string
+    mov rax, [rel last_q]
+    call print_u64
+    lea rsi, [rel rem_msg]
+    call print_string
+    mov rax, [rel last_r]
+    call print_u64
+    call print_newline
+
+    mov rax, -100
+    cqo
+    mov rcx, 9
+    idiv rcx
+    cmp rax, -11
+    jne .fail
+    cmp rdx, -1
+    jne .fail
+
+    lea rsi, [rel idiv_msg]
+    call print_string
+    mov rax, -11
+    call print_i64
+    call print_newline
+
+    call report_pass
+    ret
+.fail:
+    call report_fail
+    ret
+
+; ----------------------------------------------------------------------
+; 3. Logic and bit operations: AND, OR, XOR, NOT, shifts, rotates, BT
+; ----------------------------------------------------------------------
+test_logic:
+    lea rsi, [rel g3]
+    call print_string
+
+    mov rax, 0b1100
+    and rax, 0b1010
+    cmp rax, 0b1000
+    jne .fail
+
+    mov rax, 0b1100
+    or rax, 0b0011
+    cmp rax, 0b1111
+    jne .fail
+
+    xor rax, 0b0101
+    cmp rax, 0b1010
+    jne .fail
+
+    mov al, 0b00001111
+    not al
+    cmp al, 0b11110000
+    jne .fail
+
+    mov rax, 3
+    shl rax, 2
+    cmp rax, 12
+    jne .fail
+    shr rax, 2
+    cmp rax, 3
+    jne .fail
+
+    mov rax, -16
+    sar rax, 2
+    cmp rax, -4
+    jne .fail
+
+    mov al, 0b10000001
+    rol al, 1
+    cmp al, 0b00000011
+    jne .fail
+    ror al, 1
+    cmp al, 0b10000001
+    jne .fail
+
+    mov rax, 8
+    bt rax, 3
+    jnc .fail
+
+    mov rax, 0
+    bts rax, 5
+    cmp rax, 32
+    jne .fail
+    btr rax, 5
     test rax, rax
-    jle input_finished
+    jne .fail
 
-    mov al, [rel input_char]
-    cmp al, 10
-    je .line_done
-    cmp al, 13
-    je .read_input
-    cmp al, 32
-    jbe .whitespace
-    test r13d, r13d
-    jnz .read_input
-    cmp r12d, 31
-    jae .read_input
-    lea rdi, [rel command]
-    mov [rdi+r12], al
-    inc r12d
-    jmp .read_input
-
-.whitespace:
-    test r12d, r12d
-    jz .read_input
-    mov r13d, 1
-    jmp .read_input
-
-.line_done:
-    lea rdi, [rel command]
-    mov byte [rdi+r12], 0
-    test r12d, r12d
-    jz main_loop
-    call dispatch_command
-    test eax, eax
-    jnz main_loop
-    jmp exit_program
-
-input_finished:
-    PRINT input_error
-
-exit_program:
-    mov eax, 60
-    xor edi, edi
-    syscall
-
-dispatch_command:
-    MATCH cmd_help, command_help
-    MATCH cmd_status, command_status
-    MATCH cmd_memory, command_memory
-    MATCH cmd_process, command_process
-    MATCH cmd_start, command_start
-    MATCH cmd_stop, command_stop
-    MATCH cmd_cpu, command_cpu
-    MATCH cmd_disk, command_disk
-    MATCH cmd_check, command_check
-    MATCH cmd_about, command_about
-    MATCH cmd_version, command_version
-    MATCH cmd_reset, command_reset
-    MATCH cmd_clear, command_clear
-    MATCH cmd_shutdown, command_shutdown
-    PRINT unknown_text
-    mov eax, 1
+    call report_pass
+    ret
+.fail:
+    call report_fail
     ret
 
-command_help:
-    call show_help
-    mov eax, 1
+; ----------------------------------------------------------------------
+; 4. Control flow: CMP, conditional jumps, LOOP, CMOV, SETcc
+; ----------------------------------------------------------------------
+test_control:
+    lea rsi, [rel g4]
+    call print_string
+
+    mov rax, 20
+    cmp rax, 20
+    jne .fail
+
+    mov rax, -2
+    cmp rax, 3
+    jge .fail
+
+    mov rcx, 5
+    xor rax, rax
+.loop:
+    inc rax
+    loop .loop
+    cmp rax, 5
+    jne .fail
+
+    mov rax, 10
+    mov rbx, 20
+    cmp rax, rbx
+    cmovl rax, rbx
+    cmp rax, 20
+    jne .fail
+
+    mov rax, 7
+    cmp rax, 7
+    sete dl
+    cmp dl, 1
+    jne .fail
+
+    call report_pass
     ret
-command_status:
-    call show_status
-    mov eax, 1
+.fail:
+    call report_fail
     ret
-command_memory:
-    call show_memory
-    mov eax, 1
+
+; ----------------------------------------------------------------------
+; 5. Stack and procedures: PUSH, POP, CALL, RET
+; System V AMD64 integer args: RDI, RSI, RDX, RCX, R8, R9; result RAX.
+; ----------------------------------------------------------------------
+test_stack:
+    lea rsi, [rel g5]
+    call print_string
+
+    mov rax, 1234
+    push rax
+    xor rax, rax
+    pop rax
+    cmp rax, 1234
+    jne .fail
+
+    mov rdi, 20
+    mov rsi, 22
+    call add_two
+    cmp rax, 42
+    jne .fail
+
+    call report_pass
     ret
-command_process:
-    call show_processes
-    mov eax, 1
+.fail:
+    call report_fail
     ret
-command_start:
-    mov dword [rel system_running], 1
-    PRINT started_text
-    mov eax, 1
+
+add_two:
+    push rbp
+    mov rbp, rsp
+    mov rax, rdi
+    add rax, rsi
+    pop rbp
     ret
-command_stop:
-    mov dword [rel system_running], 0
-    PRINT stopped_text
-    mov eax, 1
+
+; ----------------------------------------------------------------------
+; 6. Memory: MOV, LEA, indexed addressing, MOVZX, MOVSX
+; ----------------------------------------------------------------------
+test_memory:
+    lea rsi, [rel g6]
+    call print_string
+
+    lea rsi, [rel array]
+    xor rax, rax
+    xor rcx, rcx
+.sum:
+    add rax, [rsi + rcx*8]
+    inc rcx
+    cmp rcx, ARRAY_COUNT
+    jne .sum
+    cmp rax, 108
+    jne .fail
+    mov [rel sum_value], rax
+
+    lea rsi, [rel sum_msg]
+    call print_string
+    mov rax, [rel sum_value]
+    call print_u64
+    call print_newline
+
+    mov byte [rel copy_buffer], 0xFE
+    movzx rax, byte [rel copy_buffer]
+    cmp rax, 254
+    jne .fail
+
+    mov byte [rel copy_buffer], -2
+    movsx rax, byte [rel copy_buffer]
+    cmp rax, -2
+    jne .fail
+
+    lea rax, [rel array]
+    test rax, rax
+    jz .fail
+
+    call report_pass
     ret
-command_cpu:
-    call show_cpu
-    mov eax, 1
+.fail:
+    call report_fail
     ret
-command_disk:
-    call show_disk
-    mov eax, 1
-    ret
-command_check:
-    call show_check
-    mov eax, 1
-    ret
-command_about:
-    call show_about
-    mov eax, 1
-    ret
-command_version:
-    PRINT version_text
-    mov eax, 1
-    ret
-command_reset:
-    mov dword [rel system_running], 1
-    PRINT reset_text
-    mov eax, 1
-    ret
-command_clear:
-    PRINT clear_code
-    mov eax, 1
-    ret
-command_shutdown:
-    PRINT shutdown_text
+
+; ----------------------------------------------------------------------
+; 7. String instructions: CLD, REP MOVSB, REPE CMPSB, REPNE SCASB
+; ----------------------------------------------------------------------
+test_strings:
+    lea rsi, [rel g7]
+    call print_string
+
+    cld
+    lea rsi, [rel source]
+    lea rdi, [rel copy_buffer]
+    mov rcx, source_len
+    rep movsb
+    mov byte [rel copy_buffer + source_len], 0
+
+    lea rsi, [rel source]
+    lea rdi, [rel copy_buffer]
+    mov rcx, source_len
+    repe cmpsb
+    jne .fail
+
+    lea rdi, [rel copy_buffer]
     xor eax, eax
+    mov rcx, BUFFER_SIZE
+    repne scasb
+    jnz .fail
+
+    call report_pass
+    ret
+.fail:
+    call report_fail
     ret
 
-show_help:
-    PRINT help_text
-    ret
-show_status:
-    PRINT status_title
-    cmp dword [rel system_running], 1
-    jne .stopped
-    PRINT status_running
-    ret
-.stopped:
-    PRINT status_stopped
-    ret
-show_memory:
-    PRINT memory_text
-    ret
-show_processes:
-    PRINT process_text
-    ret
-show_cpu:
-    PRINT cpu_text
-    ret
-show_disk:
-    PRINT disk_text
-    ret
-show_check:
-    PRINT check_text
-    ret
-show_about:
-    PRINT about_text
-    ret
-
-; Write a null-terminated string followed by a newline to stdout.
-print_line:
-    mov rdx, rsi
+; ----------------------------------------------------------------------
+; Output helpers. Linux write syscall: RAX=1, RDI=fd, RSI=buffer, RDX=len.
+; ----------------------------------------------------------------------
+print_string:
+    push rbx
+    mov rbx, rsi
+    xor edx, edx
 .count:
-    cmp byte [rdx], 0
-    je .write_text
+    cmp byte [rbx + rdx], 0
+    je .write
     inc rdx
     jmp .count
-.write_text:
-    sub rdx, rsi
-    mov eax, 1
-    mov edi, 1
+.write:
+    mov eax, SYS_write
+    mov edi, STDOUT
+    mov rsi, rbx
     syscall
-    mov eax, 1
-    mov edi, 1
+    pop rbx
+    ret
+
+print_newline:
     lea rsi, [rel newline]
-    mov edx, 1
+    jmp print_string
+
+report_pass:
+    push rsi
+    lea rsi, [rel pass_msg]
+    call print_string
+    pop rsi
+    ret
+
+report_fail:
+    inc qword [rel failures]
+    push rsi
+    lea rsi, [rel fail_msg]
+    call print_string
+    pop rsi
+    ret
+
+; Print unsigned integer in RAX as decimal.
+; DIV is also used internally here to extract base-10 digits.
+print_u64:
+    push rbx
+    push rcx
+    push rdx
+    push rsi
+    push rdi
+
+    lea rsi, [rel number_buffer + 31]
+    mov byte [rsi], 10
+    mov rcx, 1
+    mov ebx, 10
+    test rax, rax
+    jnz .digits
+    dec rsi
+    mov byte [rsi], '0'
+    inc rcx
+    jmp .emit
+.digits:
+    xor edx, edx
+    div rbx
+    add dl, '0'
+    dec rsi
+    mov [rsi], dl
+    inc rcx
+    test rax, rax
+    jnz .digits
+.emit:
+    mov eax, SYS_write
+    mov edi, STDOUT
+    mov rdx, rcx
     syscall
+
+    pop rdi
+    pop rsi
+    pop rdx
+    pop rcx
+    pop rbx
     ret
 
-; Return zero when the two null-terminated strings are equal.
+print_i64:
+    test rax, rax
+    jns print_u64
+    push rax
+    push rsi
+    lea rsi, [rel minus]
+    call print_string
+    pop rsi
+    pop rax
+    neg rax
+    jmp print_u64
 
-compare_strings:
-.compare:
-    mov al, [rdi]
-    mov dl, [rsi]
-    cmp al, dl
-    jne .different
-    test al, al
-    jz .equal
-    inc rdi
-    inc rsi
-    jmp .compare
-.different:
-    mov eax, 1
-    ret
-.equal:
-    xor eax, eax
-    ret
+exit_process:
+    mov eax, SYS_exit
+    syscall
+
+section .data
+divisor7 dq 7
