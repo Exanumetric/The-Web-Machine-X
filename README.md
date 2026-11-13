@@ -6,7 +6,7 @@ This was about The Web Machine X
 - As it was only compatible for Linux with ThinkPad
 - You can learn from it and you can make it but different
 - The project was start in Early September 2026 by 14 years 11 months old teen name Louis Greenson Chang (or Exanumetric)
-- They do it on their ThinkPad
+- They do it on their ThinkPad but they do it alone for themself, they only do it by themself as they don't need other people to do with them
 - They also know that some part was from help of AI and some were have Bootstraps and other was from themself...
 - Their website may have some problem but then they have to accept that problem as it was their thing
 
