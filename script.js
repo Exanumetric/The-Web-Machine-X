@@ -140,3 +140,19 @@ document.querySelectorAll('#nav-tab>[data-bs-toggle="tab"]').forEach(el => {
 const scrollSpy = new bootstrap.ScrollSpy(document.body, {
   target: '#navbar-example'
 })
+
+// Date sheet
+const sheet = new CSSStyleSheet()
+sheet.replaceSync(await (await fetch('/path/to/bootstrap.min.css')).text())
+
+const root = host.attachShadow({ mode: 'open' })
+root.adoptedStyleSheets = [sheet]
+root.innerHTML = '<input type="text" id="shadowDatepicker">'
+
+new bootstrap.Datepicker(root.getElementById('shadowDatepicker'))
+
+const datepickerEl = document.getElementById('myDatepicker')
+const datepicker = new bootstrap.Datepicker(datepickerEl, {
+  selectionMode: 'single',
+  firstWeekday: 1
+})
