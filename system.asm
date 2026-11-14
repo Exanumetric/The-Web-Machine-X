@@ -8,7 +8,7 @@ DEFAULT REL
 %define BUFFER_SIZE 256
 
 section .data
-    title db 10, "The Web Machine X v0.0.2", 10, 0
+    title db 10, "The Web Machine X v0.1", 10, 0
     start_msg db "[WMX] Running tests...", 10, 0
     g1 db 10, "[1] Arithmetic", 10, 0
     g2 db 10, "[2] DIV and IDIV", 10, 0
