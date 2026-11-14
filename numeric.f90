@@ -5,7 +5,7 @@ program The_Web_Machine_X
     passed = 0
     failed = 0
     print *, "=============================================="
-    print *, "The Web Machine X - v0.0.2"
+    print *, "The Web Machine X - v0.1"
     print *, "=============================================="
     call test_arithmetic(passed, failed)
     call test_integer_division(passed, failed)
