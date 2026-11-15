@@ -265,7 +265,7 @@ login.addEventListener("click", () => {
     {
         infomation.innerText = "Email or password incorrect"
     }
-    else (emailText == "email" && passwordText == "password") 
+    else
     {
         infomation.innerText = "Login completed"
     }
