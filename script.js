@@ -122,12 +122,16 @@ bsCollapse.show()
 
 const myCollapsible = document.getElementById('myCollapsible')
 myCollapsible.addEventListener('hidden.bs.collapse', event => {
-  let system = websystem = "John"
-  let binary = binarysystem = "McDortney"
-  let space = " "
-  let config = system + space + binary
-  console.log(config)
+  console.log("1")
+  console.log("2")
 })
+
+let system = websystem = "John"
+let binary = binarysystem = "McDortney"
+let space = " "
+let config = system + space + binary
+alert("Exanumetric: So you go to that website?")
+console.log(config)
 
 document.querySelectorAll('#nav-tab>[data-bs-toggle="tab"]').forEach(el => {
   el.addEventListener('shown.bs.tab', () => {
