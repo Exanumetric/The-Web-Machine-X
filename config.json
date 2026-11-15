@@ -110,11 +110,11 @@
     "configFile": "yes",
     "minify": true,
     "plugin": {
-        "version": "0.0.2"
+        "version": "0.1"
     },
     "inlineSourcesContent": true,
     "online/offline": "yes",
-    "sysver": "0.0.2",
+    "sysver": "0.1",
     "div": "yes",
     "package-info": {
         "package": {
@@ -130,7 +130,7 @@
     },
     "Figma/Notion-compatibility": "no",
     "Presetation-compatibility": "yes",
-    "envName": "The-Web-Machine-X v0.0.2",
+    "envName": "The-Web-Machine-X v0.1",
     "isModule": true,
     "outputPath": "The Web Machine X",
     "sourceMaps": true,
