@@ -244,3 +244,25 @@ const datepicker = new bootstrap.Datepicker(datepickerEl, {
       })
   })
 })()
+
+const email = document.getElementById("email")
+
+const password = document.getElementById("password")
+
+const login = document.getElementById("login")
+
+const infomation = document.getElementById("infomation")
+
+login.addEventListener("click", () => {
+    event.preventDefault()
+    let emailText = email.value.trim()
+    let passwordText = password.value.trim()
+    if (emailText  == "" && passwordText == "")
+    {
+        infomation.innerText = "Email or password should not be empty"
+    }
+    else if (emailText == "name@gmail.com" && passwordText == "10100101") 
+    {
+        infomation.innerText = "Email or password incorrect"
+    }
+})
