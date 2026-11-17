@@ -27,7 +27,7 @@ let lastname = "McDortney";
 let fullname = firstname + space + lastname;
 console.log(fullname);
 
-while (system + crs) {
+while (space + crs) {
   if (1 < 0) {
     let n = u + r;
     let K = u < n;
