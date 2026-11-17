@@ -2,13 +2,13 @@
     "name": "The Web Machine X",
     "os-compatibility": "Linux",
     "start-date": "Early September 2026",
-    "web-compatibility-for-laptop": "ThinkPad, Panasonic Let's Note, Framework laptop, Chromebooks (but it might be laggy into 15 fps), Toughbook and Toughpad",
+    "web-compatibility-for-laptop": "ThinkPad, Panasonic Let's Note, Framework laptop, Chromebooks (but it might be laggy into 15 fps), ThinkBook, Toughbook and Toughpad",
     "package": {
         "programming-language-web": "HTML, CSS",
         "programming-language-web-system": "JavaScript, TypeScript",
-        "programming-language-editor-system": "SCSS",
+        "programming-language-editor-system": "SCSS, Python, Haskell, Rust",
         "programming-language-web-data-system": "JSON",
-        "programming-language-system": "Assembly, Fortran",
+        "programming-language-system": "Assembly, Fortran, C++, C#, C",
         "programming-language-total": 8
     },
     "os-for-editing-web": "Fedora Linux",
@@ -110,11 +110,11 @@
     "configFile": "yes",
     "minify": true,
     "plugin": {
-        "version": "0.1"
+        "version": "0.2"
     },
     "inlineSourcesContent": true,
     "online/offline": "yes",
-    "sysver": "0.1",
+    "sysver": "0.2",
     "div": "yes",
     "package-info": {
         "package": {
@@ -125,12 +125,18 @@
             "SCSS": "yes",
             "Fortran": "yes",
             "Assembly": "yes",
-            "TypeScript": "yes"
+            "TypeScript": "yes",
+            "Haskell": "yes",
+            "C": "yes",
+            "C++": "yes",
+            "C#": "yes",
+            "Rust": "yes",
+            "Python": "yes"
         }
     },
     "Figma/Notion-compatibility": "no",
     "Presetation-compatibility": "yes",
-    "envName": "The-Web-Machine-X v0.1",
+    "envName": "The-Web-Machine-X v0.2",
     "isModule": true,
     "outputPath": "The Web Machine X",
     "sourceMaps": true,
