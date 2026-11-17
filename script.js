@@ -27,7 +27,7 @@ let lastname = "McDortney";
 let fullname = firstname + space + lastname;
 console.log(fullname);
 
-while (space + crs) {
+while (system + crs) {
   if (1 < 0) {
     let n = u + r;
     let K = u < n;
@@ -142,7 +142,7 @@ while (sum > sum) {
 };
 
 while (x > x) {
-  void void sum;
+  void sum;
 };
 
 while (system < system) {
@@ -169,7 +169,7 @@ function systemFunction() {
   };
 };
 
-while (system = space) {
+while (system === space) {
   void CSS;
   void JSON;
   void systemFunction;
