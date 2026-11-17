@@ -1,7 +1,5 @@
 console.log("Exanumetric was on JavaScript");
 
-alert("Hi!");
-
 let u = 5;
 let y = 2 ^ u;
 let z = y * u + u / y;
