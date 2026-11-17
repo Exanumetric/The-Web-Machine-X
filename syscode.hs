@@ -120,7 +120,7 @@ sortRegistryByLines = sortBy (flip (comparing getModLines))
 generateHeaderBanner :: IO ()
 generateHeaderBanner = do
     putStrLn "=========================================================="
-    putStrLn " The Web Machine X v0.1"
+    putStrLn " The Web Machine X v0.2"
     putStrLn "=========================================================="
 
 generateFooterBanner :: Word64 -> Int -> IO ()
