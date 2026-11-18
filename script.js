@@ -27,7 +27,7 @@ let lastname = "McDortney";
 let fullname = firstname + space + lastname;
 console.log(fullname);
 
-while (space + crs) {
+while (o < u) {
   if (1 < 0) {
     let n = u + r;
     let K = u < n;
@@ -37,7 +37,7 @@ while (space + crs) {
   } else {
     u < 1;
     r < 0;
-    x
+    xrun;
   };
 };
 
@@ -62,13 +62,13 @@ const enumeration = {
   tnum,
   sysx,
   numx,
-  x,
+  xrun,
 };
 
 let operator;
 
 function numeric() {
-  x;
+  xrun;
   y;
   r;
   enumeration;
@@ -94,7 +94,7 @@ let auto;
 let config;
 function DOMset() {
   while (sum > 8) {
-    if (sum = 0) {
+    if (sum === 0) {
       let doomset;
       console.log("System error!");
     };
@@ -141,7 +141,7 @@ while (sum > sum) {
   void auto;
 };
 
-while (x > x) {
+while (xrun > xrun) {
   void sum;
 };
 
@@ -185,7 +185,7 @@ while (system === space) {
   void inherit;
   void String;
   void sum;
-  void x;
+  void TypeScript;
   void sysx
   void numx;
   void xrun;
