@@ -162,7 +162,7 @@ let Assembly;
 console.log("packages")
 
 function systemFunction() {
-  while (system = system) {
+  while (system === system) {
     CSS;
     JSON;
     void space;
