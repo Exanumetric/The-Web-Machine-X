@@ -483,4 +483,4 @@ exit_process:
     syscall
 
 section .data
-divisor7 dq 7
+    divisor7 dq 7
