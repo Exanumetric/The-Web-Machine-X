@@ -2,7 +2,7 @@
 This was about The Web Machine X
 
 "The Web Machine X" is the open-source website: 
-- It come with element: HTML, CSS, JavaScript, JSON, TypeScript, Assembly, Fortran, SCSS with Bootstraps as well
+- It come with 24 element with Bootstraps as well
 - As it was only compatible for Linux with ThinkPad, Panasonic let's note, Toughbook, Toughpad, Chromebook, Framework laptop and ThinkBook
 - You can learn from it and you can make it but different
 - The project was start in Early September 2026 by 14 years 11 months old teen name Louis Greenson Chang (or Exanumetric)
