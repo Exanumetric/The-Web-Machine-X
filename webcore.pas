@@ -5,8 +5,8 @@ program main;
 {$OVERFLOWCHECKS ON}
 
 const
-  WMX_VERSION_MAJOR = 1;
-  WMX_VERSION_MINOR = 0;
+  WMX_VERSION_MAJOR = 0;
+  WMX_VERSION_MINOR = 3;
   WMX_SECTOR_SIZE   = 4096;
   WMX_MAX_PATH      = 1024;
   WMX_ARENA_DEFAULT = 1048576; // 1 MiB static/arena block
@@ -276,5 +276,5 @@ begin
 end;
 
 begin
-  Writeln('The Web Machine X: ', WmxTargetPlatform, ' v0.2');
+  Writeln('The Web Machine X: ', WmxTargetPlatform, ' v0.3');
 end.
