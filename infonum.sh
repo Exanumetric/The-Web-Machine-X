@@ -6,7 +6,7 @@ set -euo pipefail
 # Target OS: Fedora Linux | Hardware: ThinkPad X13 Gen 1
 # ==============================================================================
 
-WMX_VERSION="0.2"
+WMX_VERSION="0.3"
 WMX_MILESTONE="333"
 WMX_ROOT="${WMX_ROOT:-$(pwd)}"
 WMX_BUILD_DIR="${WMX_BUILD_DIR:-$WMX_ROOT/build}"
