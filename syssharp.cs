@@ -109,7 +109,7 @@ namespace TheWebMachineX
             var report = new StringBuilder();
 
             report.AppendLine("==========================================================");
-            report.AppendLine(" The Web Machine X v0.1");
+            report.AppendLine(" The Web Machine X v0.3");
             report.AppendLine("==========================================================");
             report.AppendLine($" Architecture Target : x86_64 Native / Zero-Dependency");
             report.AppendLine($" Milestone Counter   : {_metrics.TotalMilestones}+");
