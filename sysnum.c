@@ -102,7 +102,7 @@ const char* status_to_string(SystemStatus_t status) {
 
 void print_telemetry_report(const CoreTelemetry_t* tel) {
     printf("==========================================================\n");
-    printf(" The Web Machine X v0.1\n");
+    printf(" The Web Machine X v0.3\n");
     printf("==========================================================\n");
     printf(" Version Target      : %d.%d (Milestone #%u)\n", 
            MACHINE_VERSION_MAJOR, MACHINE_VERSION_MINOR, tel->milestone_id);
