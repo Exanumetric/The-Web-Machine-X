@@ -16,7 +16,7 @@ import scala.util.Try
 
 object WebMachineXScalaCore:
   val ProductName = "The Web Machine X"
-  val Version = "0.2"
+  val Version = "0.3"
   val DefaultMaxTabs = 32
   val DefaultMemoryBudget: Long = 512L * 1024L * 1024L
 
