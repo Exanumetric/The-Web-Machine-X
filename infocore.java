@@ -30,7 +30,7 @@ public final class infocore {
     private infocore() {}
 
     public static final String PRODUCT = "Web Machine X";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.3";
     public static final int DEFAULT_MAX_TABS = 32;
     public static final long DEFAULT_MEMORY_BUDGET = 512L * 1024L * 1024L;
 
@@ -597,6 +597,6 @@ public final class infocore {
     }
     public static void main(String[] args) {
         Result<Boolean> result = selfCheck();
-        System.out.println(result.success() ? "The Web Machine X v0.2: Self-check passed" : result.message());
+        System.out.println(result.success() ? "The Web Machine X v0.3: Self-check passed" : result.message());
     }
 }
