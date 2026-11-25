@@ -110,7 +110,7 @@ class TelemetryEngine:
 
 def print_banner() -> None:
     print("==========================================================")
-    print(f"The Web Machine X v0.2")
+    print(f"The Web Machine X v0.3")
     print("==========================================================")
 
 
