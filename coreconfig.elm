@@ -139,7 +139,7 @@ init _ =
             List.sum (List.map .lineCount langs)
     in
     ( { projectName = "The Web Machine X"
-      , versionTag = "v0.2"
+      , versionTag = "v0.3"
       , milestoneIndex = 333
       , totalLinesBaseline = baselineSum
       , hostOs = "Fedora Linux"
