@@ -173,7 +173,7 @@ pub fn run_vector_benchmark() -> f64 {
 
 pub fn print_banner() {
     println!("==========================================================");
-    println!(" {} :: v0.2 (mountnum.rs)     ", PROJECT_NAME);
+    println!(" {} :: v0.3 (mountnum.rs)     ", PROJECT_NAME);
     println!("==========================================================");
 }
 
