@@ -76,7 +76,7 @@ function numeric() {
 };
 
 let sysname = "The Web Machine X";
-let autosystem = "v0.2";
+let autosystem = "v0.3";
 let tname = sysname + space + autosystem;
 
 console.log(tname)
