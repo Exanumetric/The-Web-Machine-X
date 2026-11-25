@@ -1,5 +1,5 @@
 -- ============================================================================
--- THE WEB MACHINE X :: v0.2
+-- THE WEB MACHINE X :: v0.3
 -- Deterministic schema, fixed-point ledgers, WMX0 binary frame audit log,
 -- views, triggers, indexes, and CLI verification queries.
 -- ============================================================================
@@ -178,7 +178,7 @@ END;
 -- ----------------------------------------------------------------------------
 
 REPLACE INTO wmx_meta (meta_key, meta_val, updated_seq) VALUES
-  ('project_name',      'The Web Machine X v0.2', 1),
+  ('project_name',      'The Web Machine X v0.3', 1),
   ('frame_magic_hex',   '0x574D5830',        1),
   ('fixed_scale',       '10000',             1),
   ('current_milestone', '277',               1),
