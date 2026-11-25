@@ -126,7 +126,7 @@ namespace TheWebMachineX {
 
 int main(int argc, char* argv[]) {
     std::cout << "==========================================================\n";
-    std::cout << " The Web Machine X v0.2\n";
+    std::cout << " The Web Machine X v0.3\n";
     std::cout << "==========================================================\n";
 
     TheWebMachineX::EngineCoreBridge engine;
