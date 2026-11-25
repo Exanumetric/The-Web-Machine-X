@@ -866,7 +866,7 @@ defmodule WMX.Orchestrator do
     alerts = collect_alerts(state)
     summary = summarize_tasks(state.tasks)
 
-    IO.puts("=== The Web Machine X v0.2 ===")
+    IO.puts("=== The Web Machine X v0.3 ===")
     IO.puts("Status : #{line}")
     IO.puts("Tasks  : #{inspect(summary)}")
     IO.puts("Alerts : #{inspect(alerts)}")
