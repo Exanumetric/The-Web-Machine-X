@@ -573,7 +573,7 @@ round_2(Val) ->
 
 main(_Args) ->
     #{status_line := Line, json := Json} = run_diagnostics(),
-    io:format("The Web Machine X v0.2~n~s~n~s~n", [Line, Json]),
+    io:format("The Web Machine X v0.3~n~s~n~s~n", [Line, Json]),
     ok.
 
 run_diagnostics() ->
